@@ -23,7 +23,7 @@ public void mousePressed(){
 public void coolTriangle(int x, int y, int len){
   if(len <= 20){
     
-    circle(x, y, len);
+    ellipse(x, y, len, len);
   
     return;
   }else{
