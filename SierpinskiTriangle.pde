@@ -8,40 +8,22 @@ public void setup() {
 public static int l;
 public void draw() {
   background(233);
-  if(l < 800 && !mousePressed) l++;
-  if(mousePressed && l > 0) l--;
+  if(l < 800 && !mousePressed) l+=5;
+  if(mousePressed && l > 0) l-=5;
   coolTriangle(100, 580, -500, l);
 }
 
 
 public void mousePressed() {
-  l--;
+  l-=5;
 }
 public void pyramid(int x, int y, int z, int len) {
-  /*
-  pushMatrix();
-  //noFill();
- // rotateZ(4);
-  beginShape();
-  vertex(x, y, z);
-  vertex(x + len, y, z);
-  vertex(x + len, y, z + len);
-  vertex(x, y, z + len);
-  vertex(x + len/2, y - len, z + len/2);
-
-  // vertex(x, y, z);
-
-  endShape(CLOSE);
-
-  popMatrix();
-  */
   translate(x,y,z);
   box(len);
 }
 public void coolTriangle(int x, int y, int z, int len) {
   if (len <= 20) {
     pushMatrix();
-    //noFill();
     pyramid(x,y,z,len);
 
     popMatrix();
