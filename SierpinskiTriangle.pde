@@ -1,29 +1,26 @@
 
-public static int angle;
+
 public void setup() {
   size(800, 700, P3D);
-  angle = 0;
-  noLoop();
+  l = 1000;
 
-
-  //  coolTriangle(224,580,200);
-
-  // coolTriangle(112,405,200);
 }
-
+public static int l;
 public void draw() {
   background(233);
-  //pyramid(100, 580, -200, 100);
-  coolTriangle(100, 580, -500, 1000);
+  if(l < 1000 && !mousePressed) l++;
+  if(mousePressed && l > 0) l--;
+  coolTriangle(100, 580, -500, l);
 }
 
 
 public void mousePressed() {
-  angle += 100;
+  l--;
 }
 public void pyramid(int x, int y, int z, int len) {
   pushMatrix();
   //noFill();
+ // rotateZ(4);
   beginShape();
   vertex(x, y, z);
   vertex(x + len, y, z);
