@@ -2,13 +2,13 @@
 
 public void setup() {
   size(800, 700, P3D);
-  l = 1000;
+  l = 800;
 
 }
 public static int l;
 public void draw() {
   background(233);
-  if(l < 1000 && !mousePressed) l++;
+  if(l < 800 && !mousePressed) l++;
   if(mousePressed && l > 0) l--;
   coolTriangle(100, 580, -500, l);
 }
@@ -18,6 +18,7 @@ public void mousePressed() {
   l--;
 }
 public void pyramid(int x, int y, int z, int len) {
+  /*
   pushMatrix();
   //noFill();
  // rotateZ(4);
@@ -33,6 +34,9 @@ public void pyramid(int x, int y, int z, int len) {
   endShape(CLOSE);
 
   popMatrix();
+  */
+  translate(x,y,z);
+  box(len);
 }
 public void coolTriangle(int x, int y, int z, int len) {
   if (len <= 20) {
